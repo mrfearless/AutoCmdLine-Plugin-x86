@@ -1,6 +1,6 @@
 # AutoCmdLine Plugin (x86) - A Plugin For x64dbg
 
-![](https://github.com/mrfearless/AutoCmdLine-Plugin-x86/blob/master/images/AutoCmdLine.png) [Current version: 1.0.0.3 - Last updated: 26/06/2016](https://github.com/mrfearless/AutoCmdLine-x86/releases/latest) For the x64 version of this plugin, visit [here](https://github.com/mrfearless/AutoCmdLine-Plugin-x64)
+![](https://github.com/mrfearless/AutoCmdLine-Plugin-x86/blob/master/images/AutoCmdLine.png) [Current version: 1.0.0.3 - Last updated: 26/06/2016](https://github.com/mrfearless/AutoCmdLine-Plugin-x86/releases/latest) For the x64 version of this plugin, visit [here](https://github.com/mrfearless/AutoCmdLine-Plugin-x64)
 
 ## Overview
 
