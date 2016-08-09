@@ -102,7 +102,7 @@ dwRemember                      DD 0
 DebugFilename                   DD 0
 DebugFilenameMD5                DB 256 DUP (0)
 
-
+szGetCmdLine                    DB "GetCommandLine",0
 szIniCmdLine                    DB "CmdLine",0
 szIniRemember                   DB "Remember",0           
 szCRLF                          DB 13,10,0
@@ -117,3 +117,6 @@ sel                             SELECTIONDATA <>
 .DATA?
 hInstance                       DD ?
 hIcoAutoCmdLine                 DD ?
+IFDEF DEBUG32
+    DbgVar                      DD ?
+ENDIF

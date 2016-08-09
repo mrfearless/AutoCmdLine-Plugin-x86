@@ -3,8 +3,9 @@
 ;
 ; AutoCmdLine.asm
 ; 
-; v1.0.0.2 - Last updated: 01/03/2016 
+; v1.0.0.4 - Last updated: 09/08/2016 
 ;
+; - Added fix for full command line to be set, previously only saved portion was
 ; - Added function AutoCmdLineLoadMenuIcon to load png resource image as raw bytes 
 ; - Added menu icon for plugin (uses _plugin_menuseticon)
 ;
@@ -239,7 +240,7 @@ CBMENUENTRY endp
 CBINITDEBUG PROC C PUBLIC USES EBX cbType:DWORD, cbInfo:DWORD
     ;LOCAL lenFilename:DWORD
     LOCAL lpszFilename:DWORD
-    
+    ;PrintText 'CBINITDEBUG'
     Invoke RtlZeroMemory, Addr DebugFilenameMD5, SIZEOF DebugFilenameMD5
 
     mov ebx, cbInfo
@@ -274,6 +275,9 @@ CBINITDEBUG endp
 ;            Needs to be PROC C type procedure call to be compatible with debugger
 ;-------------------------------------------------------------------------------------
 CBSYSTEMBREAKPOINT PROC C PUBLIC cbType:DWORD, cbInfo:DWORD
+
+    ;PrintText 'CBSYSTEMBREAKPOINT'
+
     Invoke GuiSelectionGet, GUI_DISASSEMBLY, Addr sel
     _DbgFunctions ModPathFromAddr, sel.start, Addr szModuleFilename, MAX_PATH
 
@@ -286,10 +290,21 @@ CBSYSTEMBREAKPOINT PROC C PUBLIC cbType:DWORD, cbInfo:DWORD
             Invoke lstrcat, Addr szLogMsg, Addr szNewCommandLine
             Invoke lstrcat, Addr szLogMsg, Addr szCRLF
             Invoke GuiAddLogMessage, Addr szLogMsg
-        
+            
+            ;mov eax, DebugFilename
+            ;mov DbgVar, eax
+            ;PrintStringByAddr DbgVar
+            
             ; do the call to setcmdline
-            Invoke lstrcat, Addr szNewCommandLine, Addr szCRLF
-            _DbgFunctions SetCmdline, Addr szNewCommandLine
+            Invoke lstrcpy, Addr szCommandLine, Addr szQuote
+            Invoke lstrcat, Addr szCommandLine, DebugFilename
+            Invoke lstrcat, Addr szCommandLine, Addr szQuote
+            Invoke lstrcat, Addr szCommandLine, Addr szSpace
+            Invoke lstrcat, Addr szCommandLine, Addr szNewCommandLine
+            ;Invoke lstrcat, Addr szCommandLine, Addr szCRLF
+            ;Invoke lstrcat, Addr szNewCommandLine, Addr szCRLF
+            _DbgFunctions SetCmdline, Addr szCommandLine ;szNewCommandLine
+            Invoke DbgCmdExec, Addr szGetCmdLine
         .ENDIF
     .ENDIF    
     

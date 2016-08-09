@@ -63,20 +63,20 @@ Menu=1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0
 [VerInf]
 Nme=VERINF1
 ID=1
-FV=1.0.0.3
-PV=1.0.0.3
+FV=1.0.0.4
+PV=1.0.0.4
 VerOS=0x00000004
 VerFT=0x00000002
 VerLNG=0x00000409
 VerCHS=0x000004B0
-ProductVersion=1.0.0.3
+ProductVersion=1.0.0.4
 ProductName=AutoCmdLine
 OriginalFilename=AutoCmdLine.dp32
 LegalTrademarks=fearless (C) 2016 www.LetTheLight.in
 LegalCopyright=fearless (C) 2016 www.LetTheLight.in
 InternalName=AutoCmdLine.dll
 FileDescription=AutoCmdLine plugin for x32dbg
-FileVersion=1.0.0.3
+FileVersion=1.0.0.4
 CompanyName=fearless @ www.LetTheLight.in
 [Group]
 Group=Assembly,Resources,Misc
@@ -103,16 +103,16 @@ AutoLoad=1,2,7,9,3,6,4
 5=0,0,0,0
 8=0,0,0,0
 7=0,0,0,0
-3=0,0,0,0,977
-2=0,0,0,0,912
-1=0,0,0,0,15854
+3=0,0,0,0,304
+2=0,0,0,0,4541
+1=0,0,0,0,10731
 9=0,0,0,0,256
-6=0,0,0,0,1724
+6=0,0,0,0,1373
 4=0,0,0,0,65
 [Collapse]
 3=
 2=
-1=,2
+1=1887440912,
 9=
 6=
 4=
@@ -126,7 +126,7 @@ MilestoneOnTime=2
 MilestoneOnDate=0
 MilestoneOnDateWhen=1
 MilestoneOnDateStatus=0
-MilestoneOnDateDate=28
+MilestoneOnDateDate=9
 MilestoneOnDateTimeYear=2015
 MilestoneOnDateTimeMonth=4
 MilestoneOnDateTimeDate=15
@@ -150,7 +150,7 @@ ProductVer2Range=0
 ProductVer3Range=0
 ProductVer4Range=0
 [PTimer]
-PTimer=63210812
+PTimer=100650678
 [GroupExpand]
 GroupExpand=1,1,1,0
 [BookMark]
@@ -167,6 +167,8 @@ GroupExpand=1,1,1,0
 [BreakPoint]
 0=
 [Find]
-1="szCommandLine"
-2="lenModuleFilename"
-3="szIniCommandLineString"
+1="Loading"
+2="szCommandLine"
+3="setcmd"
+4="lenModuleFilename"
+5="szIniCommandLineString"
